@@ -4,7 +4,7 @@ function loadRepos() {
 	const list = document.getElementById('repos');
 
 	fetch(`https://api.github.com/users/${username}/repos`)
-	.then(res => res.json())
+	.then(handleResponse)
 	.then(displayRepos)
 	.catch(handleError);
 
