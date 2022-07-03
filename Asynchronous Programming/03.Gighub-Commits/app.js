@@ -11,7 +11,7 @@ async function loadCommits() {
         }
 
         const data = await res.json();
-        // const dataAsJson = await res.json();
+        // const dataAsJson = await res.text();
         // const data = JSON.parse(dataAsJson);
         list.innerHTML = '';
 
