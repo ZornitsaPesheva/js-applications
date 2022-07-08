@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form>* {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Make Authorized Request</button>
+
+
+    <h2>Register</h2>
+    <form id="register">
+        <input type="text" name="email">
+        <input type="password" name="password">
+        <input type="password" name="repass">
+        <input type="submit" value="Register">
+    </form>
+
+    <h2>Login</h2>
+    <form id="login">
+        <input type="text" name="email">
+        <input type="password" name="password">
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        document.querySelector('button').addEventListener('click', async () => {
+            const token = sessionStorage.getItem('accessToken');
+
+            const response = await fetch('http://localhost:3030/data/recipes', {
+                headers: {
+                    'X-Authorization': token
+                }
+            });
+
+            const data = await response.json();
+
+            console.log(data);
+        });
+
+        document.getElementById('register').addEventListener('submit', onRegister);
+        document.getElementById('login').addEventListener('submit', onLogin);
+
+        async function onRegister(ev) {
+            ev.preventDefault();
+
+            const formData = new FormData(ev.target);
+
+            const data = {
+                email: formData.get('email'),
+                password: formData.get('password')
+            }
+
+            try {
+                if (formData.get('password') != formData.get('repass')) {
+                    throw new Error('Passwords don\'t match!');
+                }
+
+                const response = await fetch('http://localhost:3030/users/register', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok == false) {
+                    const error = await response.json();
+                    throw new Error(error.message);
+                }
+
+                const responseData = await response.json();
+
+                console.log(responseData);
+
+                sessionStorage.setItem('accessToken', responseData.accessToken);
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+    
+        async function onLogin(ev) {
+            ev.preventDefault();
+
+            const formData = new FormData(ev.target);
+            
+            const data = {
+                email: formData.get('email'),
+                password: formData.get('password'),
+            }
+
+            try {
+                const response = await fetch('http://localhost:3030/users/login', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok == false) {
+                    const error = await response.json();
+                    throw Error(error.message);
+                }
+
+                const responseData = await response.json();
+
+                console.log(responseData);
+                sessionStorage.setItem('accessToken', responseData.accessToken);
+            } catch(err) {
+                alert(err.message);
+            }
+        }
+    </script>
+</body>
+
+</html>
