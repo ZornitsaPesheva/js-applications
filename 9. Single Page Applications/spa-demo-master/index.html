@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SPA Demo</title>
+    <script src="src/app.js" type="module"></script>
+    <style>
+        #views, #userNav, #guestNav {
+            display: none;
+        }
+
+        label {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/" id="homeBtn">Home</a>
+        <a href="/catalog" id="catalogBtn">Catalog</a>
+        <a href="/about" id="aboutBtn">About</a>
+        <div id="guestNav">
+            <a href="/login" id="loginBtn">Login</a>
+            <a href="/register" id="registerBtn">Register</a>
+        </div>
+        <div id="userNav">
+            <a href="/create" id="createBtn">Create</a>
+            <a href="javascript:void(0)" id="logoutBtn">Logout</a>
+            <span id="greeting"></span>
+        </div>
+    </nav>
+
+    <h1>SPA Demo</h1>
+
+    <main></main>
+
+
+    <div id="views">
+        <section id="homeView">
+            <h2>Home Page</h2>
+            <p>Welcome to our site!</p>
+        </section>
+
+        <section id="catalogView">
+            <h2>Catalog</h2>
+            <ul></ul>
+        </section>
+
+        <section id="aboutView">
+            <h2>About Us</h2>
+            <p>Phone: +1-555-7163</p>
+        </section>
+
+        <section id="loginView">
+            <h2>Login</h2>
+            <form>
+                <label>E-mail <input type="text" name="email"></label>
+                <label>Password <input type="password" name="password"></label>
+                <input type="submit" value="Sign In">
+            </form>
+        </section>
+
+        <section id="registerView">
+            <h2>Register</h2>
+            <form>
+                <label>E-mail <input type="text" name="email"></label>
+                <label>Password <input type="password" name="password"></label>
+                <label>Repeat <input type="password" name="repass"></label>
+                <input type="submit" value="Sign Up">
+            </form>
+        </section>
+
+        <section id="createView">
+            <h2>Create Movie</h2>
+            <form>
+                <label>Title <input type="text" name="title"></label>
+                <input type="submit" value="Create">
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>
