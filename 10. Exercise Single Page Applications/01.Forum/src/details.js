@@ -10,11 +10,18 @@ export function showDetails(ev) {
     if (target.tagName == 'A') {
         console.log('clicked anchor');
         ev.preventDefault();
-        showPost();
+
+        const postId = target.id;
+        showPost(postId);
     }
 }
 
 function showPost(postId) {
+    document.getElementById('main').replaceChildren('Loading...');
+
+    const res = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts/' + postId);
+    // const post = await res.json();
+    // console.log(post)
+
     document.getElementById('main').replaceChildren(section);
-    console.log(postId);
 }
