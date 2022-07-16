@@ -69,41 +69,8 @@
 
                 <!-- topic component  -->
                 <div class="topic-container">
-                    <div class="topic-name-wrapper">
-                        <div class="topic-name">
-                            <a href="/details" class="normal">
-                                <h2>Angular 10</h2>
-                            </a>
-                            <div class="columns">
-                                <div>
-                                    <p>Date: <time>2020-10-10T12:08:28.451Z</time></p>
-                                    <div class="nick-name">
-                                        <p>Username: <span>David</span></p>
-                                    </div>
-                                </div>
-                
-                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="topic-name-wrapper">
-                        <div class="topic-name">
-                            <a href="/details" class="normal">
-                                <h2>Angular 10</h2>
-                            </a>
-                            <div class="columns">
-                                <div>
-                                    <p>Date: <time>2020-10-10T12:08:28.451Z</time></p>
-                                    <div class="nick-name">
-                                        <p>Username: <span>David</span></p>
-                                    </div>
-                                </div>
-                
-                
-                            </div>
-                        </div>
-                    </div>
+                <!-- topic catalog  -->
+                    
                 </div>
                 
             </div>
@@ -121,7 +88,7 @@
             <div class="theme-title">
                 <div class="theme-name-wrapper">
                     <div class="theme-name">
-                        <h2>Angular 10</h2>
+                        <h2 id="details-title">Angular 10</h2>
 
                     </div>
 
@@ -134,16 +101,27 @@
 
                 <div class="header">
                     <img src="./static/profile.png" alt="avatar">
-                    <p><span>David</span> posted on <time>2020-10-10 12:08:28</time></p>
+                    <p><span id="details-username">David</span> posted on <time id="details-time">2020-10-10 12:08:28</time></p>
             
-                    <p class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure facere sint
+                    <p id="details-content" class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure facere sint
                         dolorem quam,
                         accusantium ipsa veniam laudantium inventore aut, tenetur quibusdam doloribus. Incidunt odio
                         nostrum facilis ipsum dolorem deserunt illum?</p>
                 </div>
-            <!-- topic comments -->
 
+                
                 <div id="user-comment">
+                    <!-- topic comments -->
+                    <div class="topic-name-wrapper">
+                        <div class="topic-name">
+                            <p><strong>Daniel</strong> commented on <time id="details-time">3/15/2021, 12:39:02 AM</time></p>
+                            <div class="post-content">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure facere sint
+                                    dolorem quam.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="topic-name-wrapper">
                         <div class="topic-name">
                             <p><strong>Daniel</strong> commented on <time>3/15/2021, 12:39:02 AM</time></p>
@@ -155,17 +133,6 @@
                     </div>
                 </div>
 
-                <div id="user-comment">
-                    <div class="topic-name-wrapper">
-                        <div class="topic-name">
-                            <p><strong>Daniel</strong> commented on <time>3/15/2021, 12:39:02 AM</time></p>
-                            <div class="post-content">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure facere sint
-                                    dolorem quam.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             
 

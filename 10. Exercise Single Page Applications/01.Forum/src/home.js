@@ -48,11 +48,14 @@ async function onSubmit(ev) {
     const formData = new FormData(form);
     
     console.log(formData.entries());
-    const title = formData.get('topicName');
-    const username = formData.get('username');
-    const content = formData.get('postText');
+    const title = formData.get('topicName').trim();
+    const username = formData.get('username').trim();
+    const content = formData.get('postText').trim();
 
     try {
+        if (title == '' || username == '' || content == '') {
+            throw new Error('All fields are reqiored!')
+        }
         const res = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts', {
             method: 'post',
             headers: {
