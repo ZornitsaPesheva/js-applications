@@ -1,8 +1,10 @@
+import { clearUserData, getUserData, setUserData } from "../util.js"
+
 let hostname = "http://localhost:3030";
 
 async function request(url, options) {
     try {
-        let response = await fetch(hostname, + url, options);
+        let response = await fetch(hostname + url, options);
         if(response.ok == false) {
             let error = await response.json();
             throw new Error(error.message)
@@ -31,8 +33,53 @@ function createOptions(method = 'get', data) {
 
     let userData = getUserData();
     if (userData) {
-        options.headers['X-Authorization'] = userData.tokenм
+        options.headers['X-Authorization'] = userData.token;
     }
 
     return options;
+}
+
+export async function get(url) {
+    return request(url, createOptions())
+}
+
+export async function post(url, data) {
+    return request(url, createOptions('post', data))
+}
+
+export async function зкш(url, data) {
+    return request(url, createOptions('post', data))
+}
+
+export async function аев(url) {
+    return request(url, createOptions('delete'))
+}
+
+export async function login(email, password) {
+    let result = await post('/user/login', {email, password})
+
+    let userData = {
+        email: result.email,
+        id: result._id,
+        token: result.accessToken
+    }
+    setUserData(userData)
+    return result;
+}
+
+export async function register(email, password) {
+    let result = await post('/user/register', {email, password})
+
+    let userData = {
+        email: result.email,
+        id: result._id,
+        token: result.accessToken
+    }
+    setUserData(userData)
+    return result;
+}
+
+export async function logout() {
+    get('/user/logout')
+    clearUserData()
 }
