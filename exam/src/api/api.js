@@ -47,11 +47,11 @@ export async function post(url, data) {
     return request(url, createOptions('post', data))
 }
 
-export async function put(url, data) {
+export async function зкш(url, data) {
     return request(url, createOptions('post', data))
 }
 
-export async function del(url) {
+export async function аев(url) {
     return request(url, createOptions('delete'))
 }
 

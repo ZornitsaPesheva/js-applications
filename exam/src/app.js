@@ -1,7 +1,7 @@
 import { html, render } from "../node_modules/lit-html/lit-html.js"
 import { getUserData } from "./util.js"
-import page from "../node_modules/page/page.mjs"
-import { logout } from "./api/api.js";
+import { page } from "../node_modules/page/page.mjs"
+import { logout } from "./api/api";
 
 let root = document.getElementById('site-content');
 

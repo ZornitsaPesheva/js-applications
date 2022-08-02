@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="src/app.js" type="module"></script>
     <title>Online Books Library</title>
 </head>
 
@@ -26,7 +27,7 @@
                         <span>Welcome, {email}</span>
                         <a class="button" href="#">My Books</a>
                         <a class="button" href="#">Add Book</a>
-                        <a class="button" href="#">Logout</a>
+                        <a class="button" href="#" id="logoutBtn">Logout</a>
                     </div>
                 </section>
             </nav>
@@ -34,10 +35,10 @@
         <!-- Main Content -->
         <main id="site-content"></main>
 
-        <!-- Dashboard Page ( for Guests and Users ) -->
+        <!-- Dashboard Page ( for Guests and Users )
         <section id="dashboard-page" class="dashboard">
             <h1>Dashboard</h1>
-            <!-- Display ul: with list-items for All books (If any) -->
+            Display ul: with list-items for All books (If any)
             <ul class="other-books-list">
                 <li class="otherBooks">
                     <h3>A Court of Thorns and Roses</h3>
@@ -60,11 +61,11 @@
                     <a class="button" href="#">Details</a>
                 </li>
             </ul>
-            <!-- Display paragraph: If there are no books in the database -->
+            Display paragraph: If there are no books in the database
             <p class="no-books">No books in database!</p>
         </section>
 
-        <!-- Login Page ( Only for Guest users ) -->
+        Login Page ( Only for Guest users )
         <section id="login-page" class="login">
             <form id="login-form" action="" method="">
                 <fieldset>
@@ -86,7 +87,7 @@
             </form>
         </section>
 
-        <!-- Register Page ( Only for Guest users ) -->
+        Register Page ( Only for Guest users )
         <section id="register-page" class="register">
             <form id="register-form" action="" method="">
                 <fieldset>
@@ -115,27 +116,27 @@
         </section>
 
 
-        <!-- Details Page ( for Guests and Users ) -->
+        Details Page ( for Guests and Users )
         <section id="details-page" class="details">
             <div class="book-information">
                 <h3>A Court of Thorns and Roses</h3>
                 <p class="type">Type: Fiction</p>
                 <p class="img"><img src="/images/book1.png"></p>
                 <div class="actions">
-                    <!-- Edit/Delete buttons ( Only for creator of this book )  -->
+                    Edit/Delete buttons ( Only for creator of this book ) 
                     <a class="button" href="#">Edit</a>
                     <a class="button" href="#">Delete</a>
 
-                    <!-- Bonus -->
-                    <!-- Like button ( Only for logged-in users, which is not creators of the current book ) -->
+                    Bonus
+                    Like button ( Only for logged-in users, which is not creators of the current book )
                     <a class="button" href="#">Like</a>
 
-                    <!-- ( for Guests and Users )  -->
+                    ( for Guests and Users ) 
                     <div class="likes">
                         <img class="hearts" src="/images/heart.png">
                         <span id="total-likes">Likes: 0</span>
                     </div>
-                    <!-- Bonus -->
+                    Bonus
                 </div>
             </div>
             <div class="book-description">
@@ -147,7 +148,7 @@
             </div>
         </section>
 
-        <!-- Create Page ( Only for logged-in users ) -->
+        Create Page ( Only for logged-in users )
         <section id="create-page" class="create">
             <form id="create-form" action="" method="">
                 <fieldset>
@@ -187,7 +188,7 @@
             </form>
         </section>
 
-        <!-- Edit Page ( Only for the creator )-->
+        Edit Page ( Only for the creator )
         <section id="edit-page" class="edit">
             <form id="edit-form" action="#" method="">
                 <fieldset>
@@ -228,10 +229,10 @@
             </form>
         </section>
 
-        <!-- My Books Page ( Only for logged-in users ) -->
+        My Books Page ( Only for logged-in users )
         <section id="my-books-page" class="my-books">
             <h1>My Books</h1>
-            <!-- Display ul: with list-items for every user's books (if any) -->
+            Display ul: with list-items for every user's books (if any)
             <ul class="my-books-list">
                 <li class="otherBooks">
                     <h3>Outlander</h3>
@@ -247,9 +248,9 @@
                 </li>
             </ul>
 
-            <!-- Display paragraph: If the user doesn't have his own books  -->
+            Display paragraph: If the user doesn't have his own books 
             <p class="no-books">No books in database!</p>
-        </section>
+        </section> -->
 
         <footer id="site-footer">
             <p>@OnlineBooksLibrary</p>
