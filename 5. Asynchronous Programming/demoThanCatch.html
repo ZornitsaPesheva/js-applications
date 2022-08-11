@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="load">Start</button>
+    <textarea id="res"></textarea>
+    <script>
+        let button = document.querySelector('#load');
+        button.addEventListener('click', onClick);
+
+        function onClick() {
+            fetch('http://swapi.dev/api/people')
+            .then(res => res.json())
+            .then(data => document.getElementById('res').value = JSON.stringify(data, null, 2));
+        }// data.result
+    </script>
+</body>
+</html>

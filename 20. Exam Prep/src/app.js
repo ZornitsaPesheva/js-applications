@@ -29,5 +29,6 @@ document.getElementById('logoutBtn').addEventListener('click', (e) => {
 })
 
 page(decorateContext)
+page('/login', loginPage)
 updateUserNav()
 page.start()

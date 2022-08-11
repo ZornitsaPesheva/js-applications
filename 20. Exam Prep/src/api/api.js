@@ -56,7 +56,7 @@ export async function del(url) {
 }
 
 export async function login(email, password) {
-    let result = await post('/user/login', {email, password})
+    let result = await post('/users/login', {email, password})
 
     let userData = {
         email: result.email,

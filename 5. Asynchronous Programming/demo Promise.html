@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button id="load">Start</button>
+</head>
+<body>
+    <script>
+        let button = document.querySelector('#load');
+        button.addEventListener('click', onClick);
+        function callback() {
+            console.log('inside callback');
+        }
+        
+        function executor(resolve, reject) {
+            console.log('before');
+        
+            setTimeout(() => reject(new Error('plromise rejected')), 2000);
+        
+            console.log('after')
+        }
+        
+        function start(){
+            const myPromise = new Promise(executor);
+            console.log(myPromise);
+
+            return myPromise;
+        }
+
+        function onClick() {
+            const result = start();
+            result.then(onResolve);
+            result.catch(onReject);
+        }
+
+        function onResolve(value) {
+            console.log('operation successfull');
+            console.log('returned value', value);
+        }
+    
+        function onReject(error) {
+            console.log('error encountered');
+            console.log(error.message);
+        }
+        
+    </script>
+</body>
+</html>
